@@ -86,3 +86,7 @@ button:hover {
     background-position: center;
     padding-left: 30px;
 }
+
+#tray {
+    margin-left: 10px;
+}

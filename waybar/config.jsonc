@@ -4,14 +4,15 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     //"width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 5, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "custom/icon",
         "hyprland/workspaces",
         "hyprland/mode",
         "hyprland/scratchpad",
-        "custom/media"
+        "custom/media",
+        "tray"
     ],
     "modules-center": [
         "hyprland/window"
@@ -27,8 +28,7 @@
         "sway/language",
         "battery",
         "battery#bat2",
-        "clock",
-        "tray"
+        "clock"
         //"custom/power"
     ],
     // Modules configuration
