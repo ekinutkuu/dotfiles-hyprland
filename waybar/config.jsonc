@@ -170,7 +170,7 @@
     //},
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}  {volume}%",
+        "format": "{icon}   {volume}%",
         "format-icons": {
             "default": ["", "", ""]
         }
