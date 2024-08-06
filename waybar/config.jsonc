@@ -50,6 +50,9 @@
             "urgent": "",
             "focused": "",
             "default": ""
+        },
+        "persistent-workspaces": {
+            "*": [1, 2, 3]
         }
     },
     //"hyprland/workspaces": {
