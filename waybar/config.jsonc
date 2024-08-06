@@ -28,10 +28,13 @@
         "sway/language",
         "battery",
         "battery#bat2",
-        "clock"
-        //"custom/power"
+        "clock",
+        "custom/power"
     ],
     // Modules configuration
+    "hyprland/window" : {
+        "max-length": 40
+    },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -169,10 +172,11 @@
     //    "interval": 60
     //},
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 5, // %, can be a float
         "format": "{icon}   {volume}%",
+        "format-muted": "  MUTE",
         "format-icons": {
-            "default": ["", "", ""]
+            "default": [""]
         }
     },
     "custom/media": {
@@ -190,14 +194,7 @@
     "custom/power": {
         "format" : "⏻ ",
 		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+        "on-click": "wlogout"
     },
     "custom/icon": {
         "format": " "

@@ -87,6 +87,10 @@ button:hover {
     padding-left: 30px;
 }
 
+#custom-power {
+    margin-left: 5px;
+}
+
 #tray {
     margin-left: 10px;
 }
