@@ -20,6 +20,7 @@
     "modules-right": [
         "mpd",
         "pulseaudio",
+        "backlight",
         "network",
         "power-profiles-daemon",
         "cpu",
@@ -121,11 +122,17 @@
         "tooltip": false
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "  {usage}%",
         "tooltip": false
     },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": [""],
+        "on-scroll-down": "brightnessctl set 5%-",
+        "on-scroll-up": "brightnessctl set +5%"
+    },
     "memory": {
-        "format": "{}% "
+        "format": "  {}%"
     },
     "battery": {
         "states": {
@@ -133,11 +140,11 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{icon}   {capacity}%",
+        "format-full": "{icon}   {capacity}%",
+        "format-charging": "   {capacity}%",
+        "format-plugged": "   {capacity}%",
+        "format-alt": "{icon}   {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -162,8 +169,7 @@
         "format-ethernet": " {ipaddr}/{cidr}",
         "tooltip-format": " {ifname} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "Disconnected"
     },
     //"network": {
     //    "interface": "wlp4s0", 
