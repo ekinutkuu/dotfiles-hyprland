@@ -169,7 +169,8 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "   Connected {signalStrength}%",
-        "format-ethernet": " {ipaddr}/{cidr}",
+        //"format-ethernet": " {ipaddr}/{cidr}",
+        "format-ethernet": "   Connected",
         "tooltip-format": " {ifname} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "Disconnected"
