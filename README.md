@@ -3,10 +3,15 @@
 **Dotfiles** is a collection of configuration files aimed at setting up a personalized and efficient Linux environment. This repository includes configurations for various tools and applications, enhancing productivity and aesthetics.
 
 ## Depenencies
+- hyprpaper (for wallpaper)
+- waybar (for top bar)
+- wofi (for launcher)
+- wlogout (for logout menu)
+- cava (for audio visualizer tool)
+- grim (for screenshot tool)
 - brightnessctl (to adjust the brightness)
 - wpctl (to adjust the volume)
-- grim (for screenshot tool)
-- cava (for audio visualizer tool)
+- "otf-font-awesome" and "ttf-jetbrains-mono-nerd" is required to be installed for waybar icons
 
 ## Hyprland Arch Environment
 
