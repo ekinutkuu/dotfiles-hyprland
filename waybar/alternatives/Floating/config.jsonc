@@ -2,30 +2,28 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    //"reload_style_on_change": true,
-	"margin": "10px 40px 0px 40px",
+    "margin": "10px 40px 0 40px",
     "height": 30, // Waybar height (to be removed for auto height)
-    //"width": "1280", // Waybar width
+    //"width": 1280, // Waybar width
     "spacing": 5, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "custom/icon",
         "hyprland/workspaces",
-        "tray",
-        "hyprland/window"
+        "tray"
     ],
     "modules-center": [
-        "clock#clock"
+        "hyprland/window"
     ],
     "modules-right": [
-        "network#updown",
-        "network",
         "pulseaudio",
         "backlight",
+        "network",
         "cpu",
         "memory",
         "battery",
         "battery#bat2",
-        "clock#date",
+        "clock",
         "custom/power"
     ],
     // Modules configuration
@@ -56,17 +54,11 @@
         "spacing": 10
     },
     "clock": {
-        //"format": "{:%a | %d %b | %H:%M}",
-        //"format": "{:%H:%M | %a | %d %b}",
-        "format": "{:%H:%M}",
-        "tooltip": false
-    },
-    "clock#date": {
-        "format": "{:%a | %d %b}",
+        "format": "{:%d %b, %a, %H:%M}",
         "tooltip": false
     },
     "cpu": {
-        "format": "   {usage}%",
+        "format": "  {usage}%",
         "tooltip": false
     },
     "backlight": {
@@ -99,18 +91,11 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "   Connected {signalStrength}%",
-        "format-ethernet": "  Wired",
+        //"format-ethernet": " {ipaddr}/{cidr}",
+        "format-ethernet": "   Wired",
         "tooltip-format": " {ifname} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "Disconnected"
-        //"tooltip-format-ethernet": "Connected with ethernet",
-        //"tooltip-format-wifi": "Connected with wi-fi"
-    },
-    "network#updown": {
-        "interval": 1,
-        "format": "{bandwidthDownBytes} ↓ {bandwidthUpBytes} ↑"
-        //"format": "{bandwidthDownBytes} 󰇚 {bandwidthUpBytes} 󰕒",
-        
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
@@ -124,5 +109,8 @@
         "format" : "⏻ ",
 		"tooltip": false,
         "on-click": "wlogout"
+    },
+    "custom/icon": {
+        "format": " "
     }
 }
