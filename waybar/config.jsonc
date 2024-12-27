@@ -10,24 +10,17 @@
     "modules-left": [
         "custom/icon",
         "hyprland/workspaces",
-        "hyprland/mode",
-        "hyprland/scratchpad",
-        "custom/media",
         "tray"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
-        "mpd",
         "pulseaudio",
         "backlight",
         "network",
-        "power-profiles-daemon",
         "cpu",
         "memory",
-        "keyboard-state",
-        "sway/language",
         "battery",
         "battery#bat2",
         "clock",
@@ -55,67 +48,6 @@
         "persistent-workspaces": {
             "*": [1, 2, 3]
         }
-    },
-    //"hyprland/workspaces": {
-    //    "format": "{icon}",
-    //    "format-icons": {
-    //        "1": "",
-    //        "2": "",
-    //        "3": "",
-    //        "4": "",
-    //        "5": "",
-    //        "6": "",
-    //        "active": "  ",
-    //        "default": "" 
-    //    },
-    //       "persistent-workspaces": {
-    //         "*": [ 1, 2, 3 ]
-    //       }
-    //},
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "hyprland/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
     },
     "tray": {
         // "icon-size": 21,
@@ -156,17 +88,6 @@
     "battery#bat2": {
         "bat": "BAT2"
     },
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
-    },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "   Connected {signalStrength}%",
@@ -176,12 +97,6 @@
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "Disconnected"
     },
-    //"network": {
-    //    "interface": "wlp4s0", 
-    //   "format-wifi": "   WiFi-On",
-    //   "format-disconnected": "睊   Disconnected",
-    //    "interval": 60
-    //},
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
         "format": "{icon}   {volume}%",
@@ -190,18 +105,6 @@
             "default": [""]
         }
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
     "custom/power": {
         "format" : "⏻ ",
 		"tooltip": false,
@@ -209,5 +112,5 @@
     },
     "custom/icon": {
         "format": " "
-      }
+    }
 }
