@@ -11,6 +11,7 @@
     "modules-left": [
         "hyprland/workspaces",
         "tray",
+        "custom/divider",
         "hyprland/window"
     ],
     "modules-center": [
@@ -119,6 +120,9 @@
         "format-icons": {
             "default": [""]
         }
+    },
+    "custom/divider": {
+        "format": " | "
     },
     "custom/power": {
         "format" : "⏻ ",

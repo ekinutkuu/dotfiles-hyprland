@@ -64,6 +64,10 @@ button:hover {
     margin-left: 0;
 }
 
+#workspaces button:last-child {
+    margin-right: 0;
+}
+
 #workspaces button:hover {
     background: rgba(204, 204, 204, 0.2);
 }
@@ -79,7 +83,7 @@ button:hover {
 }
 
 #tray {
-    margin-left: 10px;
+    margin: 0 5px;
 }
 
 #clock.clock {
