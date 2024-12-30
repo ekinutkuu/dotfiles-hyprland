@@ -1,0 +1,4 @@
+@define-color waybar-background rgba(0, 0, 0, 0.7);
+@define-color module-background rgba(36, 36, 36, 0.8);
+@define-color text-color-light rgb(255, 255, 255);
+@define-color text-color-dark rgb(46, 46, 46);
