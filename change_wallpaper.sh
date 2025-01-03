@@ -7,6 +7,7 @@ HYPRPAPER_CONF="$HOME/.config/hypr/hyprpaper.conf";
 KITTY_CONF="$HOME/.config/kitty/kitty.conf"
 WAYBAR_COLORS="$HOME/.config/waybar/colors-waybar.css"
 HYPRLAND_COLORS="$HOME/.config/hypr/colors-hyprland.conf"
+WLOGOUT_COLORS="$HOME/.config/wlogout/colors-wlogout.css"
 PYWAL_COLORS="$HOME/.cache/wal/colors.json"
 
 # Default colors (will be used if Pywal colors are not generated/available)
@@ -37,6 +38,10 @@ DEFAULT_TEXT_COLOR_LIGHT="rgb(255, 255, 255)"
 DEFAULT_TEXT_COLOR_DARK="rgb(46, 46, 46)"
 # Default colors for hyprland
 DEFAULT_BORDER_COLOR="#6062a1"
+# Default colors for wlogout
+DEFAULT_WLOGOUT_BUTTON_COLOR="#242436"
+DEFAULT_WLOGOUT_HOVER_COLOR="#6464c8"
+DEFAULT_WLOGOUT_TEXT_COLOR="#7d9bba"
 
 # Function to extract a value from JSON
 get_json_value() {
@@ -177,6 +182,10 @@ if [ ! -f "$PYWAL_COLORS" ]; then
     TEXT_COLOR_DARK=$DEFAULT_TEXT_COLOR_DARK
     # Default colors for hyprland
     BORDER_COLOR=$DEFAULT_BORDER_COLOR
+    # Default colors for wlogout
+    WLOGOUT_BUTTON_COLOR=$DEFAULT_WLOGOUT_BUTTON_COLOR
+    WLOGOUT_HOVER_COLOR=$DEFAULT_WLOGOUT_HOVER_COLOR
+    WLOGOUT_TEXT_COLOR=$DEFAULT_WLOGOUT_TEXT_COLOR
 else
     echo "Pywal colors found, reading colors."
     # Color reading for kitty
@@ -206,6 +215,10 @@ else
     TEXT_COLOR_DARK=$COLOR0
     # Color reading for hyprland
     BORDER_COLOR=$COLOR7 #or color6
+    # Color reading for wlogout
+    WLOGOUT_BUTTON_COLOR=$COLOR1
+    WLOGOUT_HOVER_COLOR=$COLOR3 # or color4
+    WLOGOUT_TEXT_COLOR=$COLOR7
 fi
 
 # Kitty color change
@@ -299,6 +312,29 @@ if [ "$CHANGE_HYPRLAND" == true ]; then
 else
     echo "Hyprland color update skipped."
     echo "No changes have been applied to Hyprland colors."
+fi
+
+# Wlogout color change
+ask_user "Do you want to change Wlogout colors?" CHANGE_WLOGOUT
+if [ "$CHANGE_WLOGOUT" == true ]; then
+    echo "Using $WLOGOUT_BUTTON_COLOR for wlogout button color"
+    echo "Using $WLOGOUT_HOVER_COLOR for wlogout button color on hover"
+    echo "Using $WLOGOUT_TEXT_COLOR for wlogout text color"
+
+    # Update Wlogout colors (~/.config/wlogout/colors-wlogout.css)
+    echo "Updating Wlogout colors..."
+    if [ ! -f "$WLOGOUT_COLORS" ]; then
+        echo "Wlogout color file not found."
+        echo "Attempted Path: $WLOGOUT_COLORS"
+    else
+        sed -i "s/@define-color button-color .*/@define-color button-color $WLOGOUT_BUTTON_COLOR;/g" "$WLOGOUT_COLORS"
+        sed -i "s/@define-color hover-color .*/@define-color hover-color $WLOGOUT_HOVER_COLOR;/g" "$WLOGOUT_COLORS"
+        sed -i "s/@define-color text-color .*/@define-color text-color $WLOGOUT_TEXT_COLOR;/g" "$WLOGOUT_COLORS"
+    fi
+    echo "Wlogout colors updated!"
+else
+    echo "Wlogout color update skipped."
+    echo "No changes have been applied to Wlogout colors."
 fi
 
 echo "Completed! Exiting."
