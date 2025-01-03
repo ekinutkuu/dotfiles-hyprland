@@ -1,3 +1,5 @@
+@import url('colors-wlogout.css');
+
 * {
 	background-image: none;
 }
@@ -7,8 +9,8 @@ window {
 }
 
 button {
-    color: #7d9bba;
-	background-color: rgba(17, 17, 27, 0.97);
+    color: @text-color;
+	background-color: @button-color;
 	outline-style: none;
 	border: none;
 	border-width: 0px;
@@ -21,89 +23,89 @@ button {
     margin: 20px;
     font-size: 20px;
     font-weight: bold;
-  animation: gradient_f 20s ease-in infinite;
+	animation: gradient_f 20s ease-in infinite;
 }
 
 button:hover#lock {
-	background-color: #6464c8;
+	background-color: @hover-color;
 	/* background-size: 25%; */
 	/* margin-right : 30px; */
 	/* margin-bottom : 30px; */
 	/* border-radius: 20px; */
-  /* animation: gradient_f 20s ease-in infinite; */
-  /* transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
+	/* animation: gradient_f 20s ease-in infinite; */
+	/* transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
 }
 
 button:hover#logout {
-	background-color: #6464c8;
+	background-color: @hover-color;
 	/* background-size: 25%; */
 	/* margin-right : 30px; */
 	/* margin-top : 30px; */
 	/* border-radius: 20px; */
- /*  animation: gradient_f 20s ease-in infinite; */
+	/*  animation: gradient_f 20s ease-in infinite; */
 	/* transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
 }
 
 button:hover#shutdown {
-	background-color: #6464c8;
+	background-color: @hover-color;
 	/* background-size: 25%; */
 	/* margin-left : 20px; */
 	/* margin-bottom : 30px; */
 	/* border-radius: 20px; */
-  /* animation: gradient_f 20s ease-in infinite; */
+	/* animation: gradient_f 20s ease-in infinite; */
 	/* transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
 }
 
 button:hover#reboot {
-	background-color: #6464c8;
+	background-color: @hover-color;
 	/* background-size: 25%; */
 	/* margin-left : 30px; */
 	/* margin-top : 30px; */
 	/* border-radius: 20px; */
-  /* animation: gradient_f 20s ease-in infinite; */
+	/* animation: gradient_f 20s ease-in infinite; */
 	/* transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
 }
 
 button:hover#suspend {
-	background-color: #6464c8;
+	background-color: @hover-color;
 	/* background-size: 25%; */
 	/* margin-left : 30px; */
 	/* margin-top : 30px; */
 	/* border-radius: 20px; */
-  /* animation: gradient_f 20s ease-in infinite; */
+	/* animation: gradient_f 20s ease-in infinite; */
 	/* transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
 }
 
 button:hover#hibernate {
-	background-color: #6464c8;
+	background-color: @hover-color;
 	/* background-size: 25%; */
 	/* margin-left : 30px; */
 	/* margin-top : 30px; */
 	/* border-radius: 20px; */
-  /* animation: gradient_f 20s ease-in infinite; */
+	/* animation: gradient_f 20s ease-in infinite; */
 	/* transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); */
 }
 
 #lock {
-  background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+	background-image: image(url("icons/white/lock_white.png"), url("icons/white/lock_white.png"));
 }
 
 #logout {
-  background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+	background-image: image(url("icons/white/logout_white.png"), url("icons/white/logout_white.png"));
 }
 
 #shutdown {
-  background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+	background-image: image(url("icons/white/shutdown_white.png"), url("icons/white/shutdown_white.png"));
 }
 
 #reboot {
-  background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+	background-image: image(url("icons/white/reboot_white.png"), url("icons/white/reboot_white.png"));
 }
 
 #suspend {
-  background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+	background-image: image(url("icons/white/suspend_white.png"), url("icons/white/suspend_white.png"));
 }
 
 #hibernate {
-  background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+	background-image: image(url("icons/white/hibernate_white.png"), url("icons/white/hibernate_white.png"));
 }
