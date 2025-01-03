@@ -8,7 +8,7 @@ PYWAL_COLORS="$HOME/.cache/wal/colors.json"
 WLOGOUT_COLORS="$HOME/.config/wlogout/colors-wlogout.css"
 
 # Default colors (will be used if Pywal colors are not generated/available)
-DEFAULT_BUTTON_COLOR="rgba(17, 17, 27, 0.97)"
+DEFAULT_BUTTON_COLOR="#242436"
 DEFAULT_HOVER_COLOR="#6464c8"
 DEFAULT_TEXT_COLOR="#7d9bba"
 
