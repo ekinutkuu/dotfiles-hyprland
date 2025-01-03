@@ -1,12 +1,13 @@
 window {
   /* border: 2px solid red; */
-  background-color: #1e222a;
+  background-color: rgba(0,0,0,0.3); /*#1e222a*/
   padding: 50px;
 }
 
 #input {
   padding: 10px 20px;
-  background-color: #3d455f;
+  color: #fff;
+  background-color: rgba(255,255,255, 0.1); /*#3d455f*/
   border-radius: 15px;
   margin: 20px 15px 5px 15px;
   border: none;
@@ -29,6 +30,7 @@ window {
 
 #entry {
   border-radius: 20px;
+  color: #ffffff;
 }
 
 #text:selected,
@@ -37,5 +39,5 @@ window {
 }
 
 #entry:selected {
-  background-color: #5062A1;
+  background-color: rgba(255, 255, 255, 0.3); /*#5062A1*/
 }

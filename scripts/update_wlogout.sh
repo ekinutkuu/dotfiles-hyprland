@@ -4,7 +4,7 @@
 # Path to the Pywal colors
 PYWAL_COLORS="$HOME/.cache/wal/colors.json"
 
-# Path to the Waybar style file
+# Path to the Wlogout style file
 WLOGOUT_COLORS="$HOME/.config/wlogout/colors-wlogout.css"
 
 # Default colors (will be used if Pywal colors are not generated/available)
