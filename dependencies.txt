@@ -1,0 +1,11 @@
+waybar
+hyprpaper
+wofi
+grim
+gwenview
+brightnessctl
+rsync
+otf-font-awesome
+ttf-jetbrains-mono-nerd
+yay:wlogout
+yay:cava
