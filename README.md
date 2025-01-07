@@ -70,20 +70,20 @@ When you run this script, it will change your wallpaper to the one specified in 
 
 | Keys                                                                                                                 | Action                                                           |
 | :------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
-| <kbd>super</kbd> + <kbd>t</kbd>                                                                                      | Open a terminal                                                  |
-| <kbd>super</kbd> + <kbd>q</kbd>                                                                                      | Close active window                                              |
-| <kbd>alt</kbd> + <kbd>space</kbd>                                                                                    | Open apps menu                                                   |
-| <kbd>super</kbd> + <kbd>e</kbd>                                                                                      | Open file manager                                                |
-| <kbd>super</kbd> + <kbd>t</kbd>                                                                                      | Open firefox                                                     |
-| <kbd>prtsc</kbd>                                                                                                     | Take screenshot                                                  |
-| <kbd>super</kbd> + <kbd>arrow keys</kbd>                                                                             | Change focus between windows in the specified direction          |
-| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>arrow keys</kbd>                                                          | Move active window to a different position                       |
-| <kbd>super</kbd> + <kbd>ctrl</kbd> + <kbd>arrow keys</kbd>                                                           | Resize active window                                             |
-| <kbd>super</kbd> + <kbd>v</kbd>                                                                                      | Toggle floating mode                                             |
-| <kbd>super</kbd> + <kbd>1</kbd> or <kbd>2</kbd> or <kbd>3</kbd> ...                                                  | Switch directly to specific workspace                            |
-| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>left and right arrow keys</kbd>                                             | Move between workspaces one by one                               |
-| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>1</kbd> or <kbd>2</kbd> or <kbd>3</kbd> ...                                 | Move active window to a workspace                                |
-| <kbd>super</kbd> + <kbd>shift</kbd> + <kbd>l</kbd>                                                                   | Open a session menu (shut down, reboot, logout...)               |
+| <kbd>Super</kbd> + <kbd>T</kbd>                                                                                      | Open a terminal                                                  |
+| <kbd>Super</kbd> + <kbd>Q</kbd>                                                                                      | Close active window                                              |
+| <kbd>Alt</kbd> + <kbd>Space</kbd>                                                                                    | Open apps menu                                                   |
+| <kbd>Super</kbd> + <kbd>E</kbd>                                                                                      | Open file manager                                                |
+| <kbd>Super</kbd> + <kbd>T</kbd>                                                                                      | Open firefox                                                     |
+| <kbd>Prtsc</kbd>                                                                                                     | Take screenshot                                                  |
+| <kbd>Super</kbd> + <kbd>Arrow Keys</kbd>                                                                             | Change focus between windows in the specified direction          |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Arrow Keys</kbd>                                                          | Move active window to a different position                       |
+| <kbd>Super</kbd> + <kbd>Ctrl</kbd> + <kbd>Arrow Keys</kbd>                                                           | Resize active window                                             |
+| <kbd>Super</kbd> + <kbd>V</kbd>                                                                                      | Toggle floating mode                                             |
+| <kbd>Super</kbd> + <kbd>1</kbd> or <kbd>2</kbd> or <kbd>3</kbd> ...                                                  | Switch directly to specific workspace                            |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>Left and Right Arrow Keys</kbd>                                             | Move between workspaces one by one                               |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> or <kbd>2</kbd> or <kbd>3</kbd> ...                                 | Move active window to a workspace                                |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>                                                                   | Open a session menu (shut down, reboot, logout...)               |
 
 ## I USE ARCH (BTW)
 
