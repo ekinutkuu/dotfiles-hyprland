@@ -121,7 +121,7 @@ get_monitor_info() {
     monitor_resolution=$(echo "$monitor_info" | grep -oP '\d{3,4}x\d{3,4}' | head -n 1)  # Get first resolution found
     monitor_refresh_rate=$(echo "$monitor_info" | grep -oP '\d{1,3}\.\d{2}Hz' | head -n 1)  # Get first refresh rate found
 
-    echo -e "\e[32mYour monitor will be set to the following configuration:\e[0m"
+    echo -e "\e[32mYour monitor will be set to the following configurations:\e[0m"
     echo -e "\e[34mResolution:\e[0m $monitor_resolution"
     echo -e "\e[34mRefresh Rate:\e[0m $monitor_refresh_rate"
 }
@@ -135,6 +135,48 @@ set_custom_monitor() {
 
     sed -i "s/^monitor=.*/monitor=,$custom_resolution@$custom_refresh_rate,auto,1/" "$config_file"
     echo "Hyprland.conf file updated with custom settings."
+}
+
+# Get keyboard layout
+get_keyboard_layout() {
+    kb_layout=$(cat hypr/hyprland.conf | grep 'kb_layout' | awk -F' = ' '{print $2}')
+    echo "The default keyboard layout is '$kb_layout'"
+}
+
+# Change keyboard layout
+change_keyboard_layout() {
+    while true; do
+        echo "Please select a keyboard layout:"
+        echo "1) Turkish (tr)"
+        echo "2) German (de)"
+        echo "3) French (fr)"
+        echo "4) Spanish (es)"
+        echo "5) Italian (it)"
+        echo "6) Russian (ru)"
+        echo "7) Default (us)"
+
+        read -p "Select the corresponding number: " layout_choice
+
+        case $layout_choice in
+            1) layout="tr"; break ;;
+            2) layout="de"; break ;;
+            3) layout="fr"; break ;;
+            4) layout="es"; break ;;
+            5) layout="it"; break ;;
+            6) layout="ru"; break ;;
+            7) layout="us"; break ;;
+            *) echo "Invalid choice. Please select a valid option." ;;
+        esac
+    done
+
+    config_file="hypr/hyprland.conf"
+    sed -i "/input {/,/}/s/\(kb_layout *= *\).*/\1$layout/" "$config_file"
+
+    if grep -q "kb_layout = $layout" "$config_file"; then
+        echo "Keyboard layout successfully set to '$layout'"
+    else
+        echo "Failed to update keyboard layout in '$config_file'"
+    fi
 }
 
 # Clean directories and copy dotfiles
@@ -232,7 +274,20 @@ if [[ " ${current_dotfiles[@]} " =~ " hypr " ]]; then
         echo "Using default monitor settings."
     fi
 else
-    echo "Hypr dotfile is not found, skipping monitor configuration..."
+    echo "Hypr dotfiles is not found, using default monitor configurations..."
+fi
+
+# Ask user if they want to change keyboard layout
+if [[ " ${current_dotfiles[@]} " =~ " hypr " ]]; then
+    get_keyboard_layout
+    get_user_confirmation "Do you want to change the keyboard layout?" "change_keyboard_layout"
+    if $change_keyboard_layout; then
+        change_keyboard_layout
+    else
+        echo "Using default keyboard layout."
+    fi
+else
+    echo "Hypr dotfiles is not found, using default keyboard layout..."
 fi
 
 # Ask user before proceeding with updating all dotfiles
