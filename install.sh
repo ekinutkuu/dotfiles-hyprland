@@ -162,7 +162,7 @@ check_root
 check_yay
 
 # Checking for required directories
-required_dotfiles=("cava" "hypr" "kitty" "waybar" "wlogout" "wofi")
+required_dotfiles=("cava" "hypr" "kitty" "waybar" "wlogout" "wofi" "neofetch")
 current_dotfiles=()
 missing_dotfiles=()
 

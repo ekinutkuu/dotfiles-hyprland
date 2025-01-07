@@ -9,3 +9,5 @@ otf-font-awesome
 ttf-jetbrains-mono-nerd
 yay:wlogout
 yay:cava
+neofetch
+cmatrix
