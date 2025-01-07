@@ -118,8 +118,8 @@ get_monitor_info() {
     echo "Fetching monitor resolution and refresh rate using hyprctl..."
     monitor_info=$(hyprctl monitors)
 
-    monitor_resolution=$(echo "$monitor_info" | grep -oP '\d{3,4}x\d{3,4}' | head -n 1)  # Get first resolution found
-    monitor_refresh_rate=$(echo "$monitor_info" | grep -oP '\d{1,3}\.\d{2}Hz' | head -n 1)  # Get first refresh rate found
+    monitor_resolution=$(echo "$monitor_info" | grep -oP '\d{3,4}x\d{3,4}' | head -n 1)
+    monitor_refresh_rate=$(echo "$monitor_info" | grep -oP '\d{1,3}\.\d{2}Hz' | head -n 1)
 
     echo -e "\e[32mYour monitor will be set to the following configurations:\e[0m"
     echo -e "\e[34mResolution:\e[0m $monitor_resolution"
@@ -130,11 +130,16 @@ get_monitor_info() {
 set_custom_monitor() {
     read -p "Please enter the resolution (e.g. 1920x1080): " custom_resolution
     read -p "Please enter the refresh rate (e.g. 60): " custom_refresh_rate
-    echo "Setting custom monitor resolution: $custom_resolution and refresh rate: $custom_refresh_rate"
-    config_file="hypr/hyprland.conf"
+    echo "Setting custom monitor resolution: $custom_resolution and refresh rate: $custom_refresh_rate Hz"
 
+    config_file="hypr/hyprland.conf"
     sed -i "s/^monitor=.*/monitor=,$custom_resolution@$custom_refresh_rate,auto,1/" "$config_file"
-    echo "Hyprland.conf file updated with custom settings."
+
+    if grep -q "monitor=,$custom_resolution@$custom_refresh_rate,auto,1" "$config_file"; then
+        echo "Monitor resolution and refresh rate successfully set to $custom_resolution and $custom_refresh_rate Hz."
+    else
+        echo "Failed to update monitor settings in $config_file."
+    fi
 }
 
 # Get keyboard layout
