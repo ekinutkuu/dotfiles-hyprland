@@ -70,7 +70,12 @@ install_dependencies() {
     local deps_file="dependencies.txt"
     if [[ -f "$deps_file" ]]; then
         echo "Installing dependencies..."
-        while IFS= read -r line; do
+        while IFS= read -r line || [[ -n "$line" ]]; do
+            line=$(echo "$line" | xargs)
+            if [[ -z "$line" ]]; then
+                continue
+            fi
+
             if [[ "$line" == yay:* && "$skip_yay_deps" == true ]]; then
                 package="${line#yay:}"
                 echo "Skipping '$package' installation because yay is not installed."
