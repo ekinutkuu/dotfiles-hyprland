@@ -11,3 +11,4 @@ yay:wlogout
 yay:cava
 neofetch
 cmatrix
+python-pywal

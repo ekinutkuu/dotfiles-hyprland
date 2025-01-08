@@ -296,7 +296,7 @@ else
 fi
 
 # Ask user before proceeding with updating all dotfiles
-get_user_confirmation "Do you want to continue updating all dotfiles?" "update_dirs"
+get_user_confirmation "Do you want to continue updating dotfiles?" "update_dirs"
 if $update_dirs; then
     echo "Updating all dotfiles..."
     for dir in "${current_dotfiles[@]}"; do
@@ -310,7 +310,7 @@ fi
 echo "Installation completed."
 
 # Ask user if they want to restart the computer
-get_user_confirmation "Do you want to restart your computer? This may help resolve potential issues." "restart_computer"
+get_user_confirmation "Do you want to restart your computer? This may help resolve potential issues" "restart_computer"
 if $restart_computer; then
     echo "Rebooting..."
     sudo reboot
