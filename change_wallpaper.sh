@@ -8,6 +8,7 @@ KITTY_CONF="$HOME/.config/kitty/kitty.conf"
 WAYBAR_COLORS="$HOME/.config/waybar/colors-waybar.css"
 HYPRLAND_COLORS="$HOME/.config/hypr/colors-hyprland.conf"
 WLOGOUT_COLORS="$HOME/.config/wlogout/colors-wlogout.css"
+CAVA_CONF="$HOME/.config/cava/config"
 PYWAL_COLORS="$HOME/.cache/wal/colors.json"
 
 # Default colors (will be used if Pywal colors are not generated/available)
@@ -42,6 +43,15 @@ DEFAULT_BORDER_COLOR="#6062a1"
 DEFAULT_WLOGOUT_BUTTON_COLOR="#242436"
 DEFAULT_WLOGOUT_HOVER_COLOR="#6464c8"
 DEFAULT_WLOGOUT_TEXT_COLOR="#7d9bba"
+# Default colors for cava
+DEFAULT_CAVA_GC1="#94e2d5"
+DEFAULT_CAVA_GC2="#89dceb"
+DEFAULT_CAVA_GC3="#74c7ec"
+DEFAULT_CAVA_GC4="#89b4fa"
+DEFAULT_CAVA_GC5="#cba6f7"
+DEFAULT_CAVA_GC6="#f5c2e7"
+DEFAULT_CAVA_GC7="#eba0ac"
+DEFAULT_CAVA_GC8="#f38ba8"
 
 # Function to extract a value from JSON
 get_json_value() {
@@ -117,10 +127,10 @@ nohup hyprpaper &>/dev/null &
 echo "Wallpaper changed!"
 
 # User input for color change and check if Pywal is installed
-ask_user "Do you want to change your kitty/waybar/hyprland colors?" CHANGE_COLORS
+ask_user "Do you want to change the colors of your components?" CHANGE_COLORS
 if [ "$CHANGE_COLORS" == true ]; then
     echo "Checking if Pywal is installed..."
-    
+
     if ! command -v wal &> /dev/null; then
         read -p "Pywal is not installed. Would you like to install? (y/n): " INSTALL_PYWAL
         if [[ "$INSTALL_PYWAL" == "y" || "$INSTALL_PYWAL" == "Y" ]]; then
@@ -186,6 +196,15 @@ if [ ! -f "$PYWAL_COLORS" ]; then
     WLOGOUT_BUTTON_COLOR=$DEFAULT_WLOGOUT_BUTTON_COLOR
     WLOGOUT_HOVER_COLOR=$DEFAULT_WLOGOUT_HOVER_COLOR
     WLOGOUT_TEXT_COLOR=$DEFAULT_WLOGOUT_TEXT_COLOR
+    # Default colors for cava
+    CAVA_GC1=$DEFAULT_CAVA_GC1
+    CAVA_GC2=$DEFAULT_CAVA_GC2
+    CAVA_GC3=$DEFAULT_CAVA_GC3
+    CAVA_GC4=$DEFAULT_CAVA_GC4
+    CAVA_GC5=$DEFAULT_CAVA_GC5
+    CAVA_GC6=$DEFAULT_CAVA_GC6
+    CAVA_GC7=$DEFAULT_CAVA_GC7
+    CAVA_GC8=$DEFAULT_CAVA_GC8
 else
     echo "Pywal colors found, reading colors."
     # Color reading for kitty
@@ -219,6 +238,15 @@ else
     WLOGOUT_BUTTON_COLOR=$COLOR1
     WLOGOUT_HOVER_COLOR=$COLOR3 # or color4
     WLOGOUT_TEXT_COLOR=$COLOR7
+    # Color reading for cava
+    CAVA_GC1=$COLOR0
+    CAVA_GC2=$COLOR1
+    CAVA_GC3=$COLOR2
+    CAVA_GC4=$COLOR3
+    CAVA_GC5=$COLOR4
+    CAVA_GC6=$COLOR5
+    CAVA_GC7=$COLOR6
+    CAVA_GC8=$COLOR7
 fi
 
 # Kitty color change
@@ -335,6 +363,29 @@ if [ "$CHANGE_WLOGOUT" == true ]; then
 else
     echo "Wlogout color update skipped."
     echo "No changes have been applied to Wlogout colors."
+fi
+
+# Cava color change
+ask_user "Do you want to change Cava colors?" CHANGE_CAVA
+if [ "$CHANGE_CAVA" == true ]; then
+    # Write the colors to the cava conf file
+    echo "Updating Cava colors..."
+    sed -i "s/^gradient_color_1 = .*/gradient_color_1 = '$CAVA_GC1'/" "$CAVA_CONF"
+    sed -i "s/^gradient_color_2 = .*/gradient_color_2 = '$CAVA_GC2'/" "$CAVA_CONF"
+    sed -i "s/^gradient_color_3 = .*/gradient_color_3 = '$CAVA_GC3'/" "$CAVA_CONF"
+    sed -i "s/^gradient_color_4 = .*/gradient_color_4 = '$CAVA_GC4'/" "$CAVA_CONF"
+    sed -i "s/^gradient_color_5 = .*/gradient_color_5 = '$CAVA_GC5'/" "$CAVA_CONF"
+    sed -i "s/^gradient_color_6 = .*/gradient_color_6 = '$CAVA_GC6'/" "$CAVA_CONF"
+    sed -i "s/^gradient_color_7 = .*/gradient_color_7 = '$CAVA_GC7'/" "$CAVA_CONF"
+    sed -i "s/^gradient_color_8 = .*/gradient_color_8 = '$CAVA_GC8'/" "$CAVA_CONF"
+
+    # Restart Cava to apply changes
+    echo "Restarting Cava..."
+    pkill -USR1 cava
+    echo "Cava colors updated!"
+else
+    echo "Cava color update skipped."
+    echo "No changes have been applied to Cava colors."
 fi
 
 echo "Completed! Exiting."
