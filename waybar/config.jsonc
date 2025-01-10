@@ -77,7 +77,8 @@
         "on-scroll-up": "brightnessctl set +5%"
     },
     "memory": {
-        "format": "  {}%"
+        "format": "  {}%",
+        "tooltip": false
     },
     "battery": {
         "states": {
@@ -103,15 +104,16 @@
         "format-ethernet": "  Wired",
         "tooltip-format": " {ifname} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "Disconnected"
+        "format-disconnected": "Disconnected",
+        "tooltip": false
         //"tooltip-format-ethernet": "Connected with ethernet",
         //"tooltip-format-wifi": "Connected with wi-fi"
     },
     "network#updown": {
         "interval": 1,
-        "format": "{bandwidthDownBytes} ↓ {bandwidthUpBytes} ↑"
+        "format": "{bandwidthDownBytes} ↓ {bandwidthUpBytes} ↑",
         //"format": "{bandwidthDownBytes} 󰇚 {bandwidthUpBytes} 󰕒",
-        
+        "tooltip": false
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
@@ -119,10 +121,12 @@
         "format-muted": "  MUTE",
         "format-icons": {
             "default": [""]
-        }
+        },
+        "tooltip": false
     },
     "custom/divider": {
-        "format": " | "
+        "format": " | ",
+        "tooltip": false
     },
     "custom/power": {
         "format" : "⏻ ",
